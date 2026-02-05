@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Libreta de Matemáticas</title>
+    <style>
+        /* --- CONFIGURACIÓN BASE --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Calibri', sans-serif;
+            background-color: white;
+        }
+
+        /* --- LA HOJA Y CUADRÍCULA --- */
+        .hoja {
+            width: 100vw;
+            min-height: 100vh;
+            position: relative;
+            background-image:
+                linear-gradient(to right, #d1e1f0 1px, transparent 1px),
+                linear-gradient(to bottom, #d1e1f0 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Línea lateral roja */
+        .hoja::before {
+            content: "";
+            position: absolute;
+            left: 100px; 
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #ffb3b3;
+            z-index: 1;
+        }
+
+        .contenido {
+            position: relative;
+            z-index: 2;
+            padding: 40px 40px 40px 150px;
+        }
+
+        /* --- PIZARRA (BANNER) --- */
+        .pizarra-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .pizarra {
+            background: radial-gradient(circle, #444 0%, #222 100%);
+            padding: 20px 50px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            min-width: 60%;
+            position: relative;
+            border: 1px solid #555;
+        }
+
+        .titulo-pizarra {
+            color: #fdfdfd;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.2);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .pizarra::after {
+            content: "";
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+            width: 30px;
+            height: 8px;
+            background-color: white;
+            border-radius: 2px;
+            opacity: 0.8;
+            transform: rotate(-5deg);
+        }
+
+        /* --- ÍNDICE Y ESTILO BOLÍGRAFO --- */
+        .indice {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tema {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 35px;
+        }
+
+        .linea-principal {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Título NO clicable */
+        .titulo-tema {
+            color: #003399;
+            font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+            font-weight: bold;
+            font-size: 1.6rem;
+            border-bottom: 2px solid rgba(0, 51, 153, 0.3);
+            cursor: default; /* Muestra flecha normal, no mano */
+        }
+
+        .icono {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1));
+        }
+
+        /* --- SUBÍNDICE (PDFs) --- */
+        .sub-indice {
+            display: block;
+            list-style: none;
+            padding-left: 60px;
+            margin-top: 10px;
+            border-left: 2px solid #d1e1f0;
+        }
+
+        .sub-indice li {
+            margin-bottom: 10px;
+        }
+
+        .sub-indice a {
+            text-decoration: none;
+            color: #555;
+            font-family: 'Segoe Print', cursive;
+            font-size: 1.2rem;
+            border-bottom: 1px dotted #ccc;
+            transition: all 0.3s ease;
+            padding: 2px 5px;
+        }
+
+        .sub-indice a:hover {
+            color: #e74c3c;
+            border-bottom: 1px solid #e74c3c;
+            padding-left: 10px;
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hoja">
+        <div class="contenido">
+            
+            <div class="pizarra-container">
+                <div class="pizarra">
+                    <h1 class="titulo-pizarra">Exemples matemàtiques 2n ESO</h1>
+                </div>
+            </div>
+
+            <p style="font-style: italic; color: #666;">Selecciona un tema para ver los apuntes en PDF:</p>
+            
+            <ul class="indice">
+                
+                <li class="tema">
+                    <div class="linea-principal">
+                        <span class="icono">📐</span>
+                        <span class="titulo-tema">Proporcionalitat numèrica</span>
+                    </div>
+                    <ul class="sub-indice">
+                        <li><a href="pdf/Proporcionalitat.pdf" target="_blank">▸ Problema de proporcionalitat directa</a></li>
+                        <li><a href="pdf/poligonos.pdf" target="_blank">▸ Problema de proporcionalitat inversa</a></li>
+                        <li><a href="pdf/circulos.pdf" target="_blank">▸ Problema de proporcionalitat composta</a></li>
+                    </ul>
+                </li>
+
+                <li class="tema">
+                    <div class="linea-principal">
+                        <span class="icono">➗</span>
+                        <span class="titulo-tema">Proporcionalitat geomètrica</span>
+                    </div>
+                    <ul class="sub-indice">
+                        <li>
